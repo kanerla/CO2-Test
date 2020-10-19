@@ -1,0 +1,16 @@
+#tabContainer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-icon {
+    margin-right: 8px;
+}
+
+div {
+    border-style: solid;
+    border-color: #6A1B9A;
+    border-width: 15px;
+}
