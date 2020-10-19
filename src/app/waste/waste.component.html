@@ -1,0 +1,121 @@
+<div class="content">
+    <div class="column side">
+        <p>
+            The estimated average amount of household waste is 320 kg per person per year.
+            This estimate includes sorted and mixed household waste, and is based on studies by the Finnish Environment Institute.
+        </p>
+        <p>
+            You can adjust the estimate of the amount of waste generated,
+            as well as specify the frequency of sorting different waste fractions at home.
+        </p>
+    </div>
+    <div class="column middle">
+        <form [formGroup]="wasteForm" (ngSubmit)="onFormSubmit()" #wsForm="ngForm">  
+            <div>
+                <label>The amount of waste I produce:</label>
+                <br>
+                <mat-radio-group formControlName="amountEstimate">
+                    <mat-radio-button value="low" color="accent">Low</mat-radio-button>
+                    <mat-radio-button value="normal" color="accent">Normal</mat-radio-button>
+                    <mat-radio-button value="high" color="accent">High</mat-radio-button>
+                </mat-radio-group>
+                <span></span>
+                <label>I sort listed waste:</label>
+                <span></span>
+                <b>Organic</b>
+                <br>
+                <mat-radio-group formControlName="bioWaste">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Paper</b>
+                <br>
+                <mat-radio-group formControlName="paper">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Cardboard</b>
+                <br>
+                <mat-radio-group formControlName="carton">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Glass</b>
+                <br>
+                <mat-radio-group formControlName="glass">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Metal</b>
+                <br>
+                <mat-radio-group formControlName="metal">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Plastic</b>
+                <br>
+                <mat-radio-group formControlName="plastic">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Electronics</b>
+                <br>
+                <mat-radio-group formControlName="electronic">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <b>Hazardous waste</b>
+                <br>
+                <mat-radio-group formControlName="hazardous">
+                    <mat-radio-button value="never" color="accent">Never</mat-radio-button>
+                    <mat-radio-button value="sometimes" color="accent">Sometimes</mat-radio-button>
+                    <mat-radio-button value="often" color="accent">Often</mat-radio-button>
+                    <mat-radio-button value="always" color="accent">Always</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>   
+                <button mat-flat-button color="primary" [disabled]="!wasteForm.valid">Submit</button>
+                <label *ngIf="submitted && result === 0.0">Calculating...</label>
+            </div>  
+        </form>
+    </div>
+    <div class="column side">
+        <h3>Your results</h3>
+        <p>
+            According to your recycling habits, you emit approximately <mark style="background-color:#FFC107">{{result.toFixed(2)}} kg</mark> CO2 eq. per year.
+        </p>
+        <p>
+            <u>UNDER 50</u><br>You're doing amazing sweetie, keep up the good work!
+        </p>
+        <p>
+            <u>BETWEEN 50 AND 100</u><br>Good job! There's always room for improvement.
+        </p>
+        <p>
+            <u>OVER 100</u><br>You're on a right track! Take the next step, and start sorting one more type of waste in your every day life. It's easy, and has a huge difference to the world.
+        </p>
+        <p>
+            Find your closest recycling bins here: <a href="https://www.kierratys.info/#">https://www.kierratys.info/</a>
+        </p>
+    </div>
+</div>
