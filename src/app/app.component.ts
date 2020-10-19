@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         <mat-icon class="tab-icon">delete</mat-icon>
         Waste
       </ng-template>
-      Waste here
+      <app-waste></app-waste>
     </mat-tab>
 
     <mat-tab>
