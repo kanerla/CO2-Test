@@ -14,13 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WasteComponent } from './waste/waste.component';
+import { TravelComponent } from './travel/travel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     InfoComponent,
-    WasteComponent
+    WasteComponent,
+    TravelComponent
   ],
   imports: [
     BrowserModule,

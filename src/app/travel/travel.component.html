@@ -1,0 +1,66 @@
+<div class="content">
+    <div class="column side">
+      <p>
+        You do not have to include trips that are part of your jobs in the calculation (i.e. trips commissioned and paid by your employer).
+        In the national economy, these trips are included in the figures for the workplace, which makes them either emissions from production or public affairs.
+         However, commuting between home and workplace are included in your carbon footprint.
+      </p>
+    </div>
+    <div class="column middle">
+      <p>
+        Indicate the number of flights and trips made on a cruise ship in a year, calculating return trips as two one-way trips.
+      </p>
+      <form [formGroup]="travelForm" (ngSubmit)="onFormSubmit(travelForm.value)" #wsForm="ngForm">  
+        <div>
+          <h3> ONE WAY BOAT CRUISES IN A YEAR</h3>
+          <label for="estoniaCruises">Helsinki-Tallinn</label>
+          <input id="estoniaCruises" type="number" formControlName="estoniaCruises" min="0">
+          <br>
+          <label for="germanyCruises">Helsinki-Travemunde</label>
+          <input id="germanyCruises" type="number" formControlName="germanyCruises" min="0">
+          <br>
+          <label for="swedenCruises">Helsinki-Stockholm</label>
+          <input id="swedenCruises" type="number" formControlName="swedenCruises" min="0">
+          <br>
+  
+          <h3> ONE WAY FLIGHTS IN A YEAR </h3>
+          <label for="finlandFlights">Within Finland</label>
+          <input id="finlandFlights" type="number" formControlName="finlandFlights" min="0">
+          <br>
+          <label for="europeanFlights">Within Europe</label>
+          <input id="europeanFlights" type="number" formControlName="europeanFlights" min="0">
+          <br>
+          <label for="canaryFlights">Canary Islands</label>
+          <input id="canaryFlights" type="number" formControlName="canaryFlights" min="0">
+          <br>
+          <label for="transContinentalFlights">Trans-continental</label>
+          <input id="transContinentalFlights" type="number" formControlName="transContinentalFlights" min="0">
+          <br>
+        </div>   
+        <div>   
+          <button mat-flat-button color="primary" [disabled]="!travelForm.valid">Submit</button>
+          <label *ngIf="submitted && total === 0.0">Calculating...</label>
+        </div>  
+      </form>
+    </div>
+    <div class="column side">
+      <h3>Your results</h3>
+      <p>
+        According to your traveling habits, you emit approximately <mark style="background-color:#FFC107">{{total.toFixed(2)}} kg</mark> CO2 eq. per year.
+      </p>
+      <p>
+        Cruises: {{cruise.toFixed(2)}} kg
+        <br>
+        Flights: {{flight.toFixed(2)}} kg
+      </p>
+      <span></span>
+      <p>
+        Always prefer low-emission modes of transportation, such as train or bus, when possible.
+        Emissions are generally lower when traveling locally.
+      </p>
+      <p>
+        Please avoid high-emission modes of transportation, such as flying and cruising, when possible. If you fly, always choose direct flights and pack lightly.
+        Remember that many short flights cause higher emissions than one longer one.
+      </p>
+    </div>
+  </div>

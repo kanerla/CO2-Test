@@ -1,0 +1,48 @@
+span {
+    margin-top: 2em;
+    display: block;
+}
+  
+button {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+#finlandFlights, #europeanFlights, #canaryFlights, #transContinentalFlights,
+#estoniaCruises, #germanyCruises, #swedenCruises {
+    width: 3em;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.content {
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.column {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 25px 15px 0px;
+}
+
+.column.middle {
+    border-style: outset;
+}
+
+@media (max-width: 600px) {
+    .content {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
