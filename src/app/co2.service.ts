@@ -12,10 +12,13 @@ export class Co2Service {
   private http: HttpClient;
   private wasteBase = 'https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/WasteCalculator';
   private wasteUrl = 'https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/WasteCalculator';
+  private travelUrl = 'https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/TransportCalculator';
+  private travelBase = 'https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/TransportCalculator';
   headers;
   private proxyurl = 'https://cors-anywhere.herokuapp.com/';
   private waste;
   private wasteForm;
+  private travelForm;
 
   /**
    * Class constructor.
@@ -39,6 +42,15 @@ export class Co2Service {
   }
 
   /**
+   * Setter for TravelForm data.
+   *
+   * @param formValue The values submitted in TravelForm.
+   */
+  setTravelForm(formValue): void {
+    this.travelForm = formValue;
+  }
+
+  /**
    * Fills in the URL and fetches the CO2 calculation from WasteCalculator.
    *
    * @param callBackFunction Called from WasteComponent. Returns the amount of CO2 emitted in kilograms as a number.
@@ -58,5 +70,26 @@ export class Co2Service {
     });
 
     this.wasteUrl = this.wasteBase;
+  }
+
+  /**
+   * Fills in the URL and fetches the CO2 calculation from TransportCalculator.
+   *
+   * @param callBackFunction Called from TravelComponent. Returns JSON data.
+   */
+  calculateTravel(callBackFunction: (result: Object) => void): void {
+    for (const key in this.travelForm) {
+      if (key === 'canaryFlights') {
+        this.travelUrl += '?query.canaryFlights=' + this.travelForm[key];
+      } else {
+        this.travelUrl += '&query.' + key + '=' + this.travelForm[key];
+      }
+    }
+
+    this.http.get(this.proxyurl + this.travelUrl, {headers: this.headers}).subscribe(json => {
+      callBackFunction(json);
+    });
+
+    this.travelUrl = this.travelBase;
   }
 }
