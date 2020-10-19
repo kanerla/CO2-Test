@@ -1,0 +1,22 @@
+.content {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  .column {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 25px;
+  }
+  
+  a {
+    color: #6A1B9A;
+  }
+  
+  @media (max-width: 750px) {
+    .content {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  }
