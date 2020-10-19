@@ -6,6 +6,9 @@ import { HeaderComponent } from './header/header.component';
 import { InfoComponent } from './info/info.component';
 import { InfoService } from './info.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [InfoService],
   bootstrap: [AppComponent]
