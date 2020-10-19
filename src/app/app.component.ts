@@ -26,7 +26,7 @@ import { Component } from '@angular/core';
         <mat-icon class="tab-icon">flight_takeoff</mat-icon>
         Travel
       </ng-template>
-      Travel here
+      <app-travel></app-travel>
     </mat-tab>
   </mat-tab-group>
   </div>`,
