@@ -15,6 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WasteComponent } from './waste/waste.component';
 import { TravelComponent } from './travel/travel.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { TravelComponent } from './travel/travel.component';
     MatRadioModule,
     MatButtonModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
   providers: [InfoService, Co2Service],
   bootstrap: [AppComponent]
